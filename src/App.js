@@ -1,46 +1,34 @@
 import React from "react";
+import Header from "./components/Header";
+import Winner from "./components/Winner";
+import Scores from "./components/Scores";
+import Reset from "./components/Reset";
 
 const App = ({ player1, player2, server1, handleIncrement1, handleIncrement2, handleReset, winner }) => (
     <React.Fragment>
-        {/* header */}
-        <header className="jumbotron mt-4 mb-0">
-            <h1>PongPing</h1>
-        </header>
-
-        {/* scores */}
+        <Header />
         <div className="row mb-4">
-            <div className="col-md-6 mt-4">
-                <div className={ server1 ? "card text-center bg-dark text-white" : "card text-center"}>
-                    <h5 className="card-header">Player 1</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ player1 }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button className="form-control btn btn-success" onClick={ handleIncrement1 }>+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="col-md-6 mt-4">
-                <div className={ server1 ? "card text-center" : "card text-center bg-dark text-white"}>
-                    <h5 className="card-header">Player 2</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ player2 }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button className="form-control btn btn-success" onClick={ handleIncrement2 }>+</button>
-                    </div>
-                </div>
-            </div>
+            <Scores 
+                server1={ server1 } 
+                handleIncrement={ handleIncrement1 }
+                name="Player 1"
+                player={ player1 }
+            />
+            <Scores 
+                server1={ server1 } 
+                handleIncrement={ handleIncrement2 }
+                name="Player 2" 
+                player={ player2 }       
+            />
         </div>
-
-        { /* winner message */}
-        { winner ? <h2 className="alert alert-success">{ winner ? (player1 === 21 ? "Player 1 wins!" : "Player 2 wins!" ) : null }</h2> : null }
-
+        <Winner 
+            winner={ winner } 
+            player1={ player1 } 
+        />
         <hr />
-
-        { /* reset button */}
-        <button className="btn btn-danger" onClick={ handleReset }>Reset</button>
+        <Reset 
+            handleReset={ handleReset } 
+        />
     </React.Fragment>
 );
 
