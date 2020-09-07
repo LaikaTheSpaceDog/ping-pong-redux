@@ -12,8 +12,8 @@ const initial = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_PLAYER_1": return { ...state, player1: state.value + 1 };
-    case "INCREMENT_PLATER_2": return { ...state, player2: state.value + 1 };
+    case "INCREMENT_PLAYER_1": return { ...state, player1: state.player1 + 1 };
+    case "INCREMENT_PLAYER_2": return { ...state, player2: state.player2 + 1 };
     default: return state;
   }
 };
@@ -25,7 +25,12 @@ const render = () => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <App player1={ state.player1 } player2={ state.player2 } />
+      <App 
+        player1={ state.player1 } 
+        player2={ state.player2 } 
+        handleIncrement1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
+        handleIncrement2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
+      />
     </React.StrictMode>,
     document.getElementById('root')
   );
