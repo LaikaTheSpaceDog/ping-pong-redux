@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = ({ player1, player2, handleIncrement1, handleIncrement2 }) => (
+const App = ({ player1, player2, handleIncrement1, handleIncrement2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -40,7 +40,7 @@ const App = ({ player1, player2, handleIncrement1, handleIncrement2 }) => (
         <hr />
 
         { /* reset button */}
-        <button className="btn btn-danger">Reset</button>
+        <button className="btn btn-danger" onClick={ handleReset }>Reset</button>
     </React.Fragment>
 );
 
