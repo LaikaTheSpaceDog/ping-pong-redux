@@ -20,17 +20,12 @@ const reducer = (state, action) => {
 
 const store = createStore(reducer, initial);
 
-store.subscribe(() => {
-  let state = store.getState();
-})
-
-
 const render = () => {
   let state = store.getState();
 
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <App player1={ state.player1 } player2={ state.player2 } />
     </React.StrictMode>,
     document.getElementById('root')
   );
