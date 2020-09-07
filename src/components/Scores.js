@@ -1,23 +1,27 @@
 import React from "react";
+import Score from "./Score";
 
-const Score = ({ player, server1, handleIncrement, name }) => {
+const Scores = ({ player1, player2, server1, handleIncrement1, handleIncrement2 }) => {
 
     return(
         <>
-            <div className="col-md-6 mt-4">
-                <div className={ server1 ? "card text-center bg-dark text-white" : "card text-center"}>
-                    <h5 className="card-header">{ name }</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ player }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button className="form-control btn btn-success" onClick={ handleIncrement }>+</button>
-                    </div>
-                </div>
+            <div className="row mb-4">
+                <Score 
+                    server1={ server1 } 
+                    handleIncrement={ handleIncrement1 }
+                    name="Player 1"
+                    player={ player1 }
+                />
+                <Score 
+                    server1={ !server1 } 
+                    handleIncrement={ handleIncrement2 }
+                    name="Player 2" 
+                    player={ player2 }   
+                />
             </div>
         </>
     );
 
 }
 
-export default Score;
+export default Scores;
