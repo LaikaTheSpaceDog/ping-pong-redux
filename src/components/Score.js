@@ -1,6 +1,6 @@
 import React from "react";
 
-const Score = ({ player, server1, handleIncrement, name }) => {
+const Score = ({ player, server1, handleIncrement, name, winner }) => {
 
     return(
         <>
@@ -11,7 +11,7 @@ const Score = ({ player, server1, handleIncrement, name }) => {
                         <p className="card-text display-1">{ player }</p>
                     </div>
                     <div className="card-footer">
-                        <button className="form-control btn btn-success" onClick={ handleIncrement }>+</button>
+                        <button className="form-control btn btn-success" onClick={ handleIncrement } disabled={ winner ? "disabled" : "" } >+</button>
                     </div>
                 </div>
             </div>

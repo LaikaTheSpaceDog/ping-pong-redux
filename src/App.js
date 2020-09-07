@@ -13,6 +13,7 @@ const App = ({ player1, player2, server1, handleIncrement1, handleIncrement2, ha
             server1={ server1 }
             handleIncrement1={ handleIncrement1 }
             handleIncrement2={ handleIncrement2 }
+            winner={ winner }
         />
         <Winner 
             winner={ winner } 
