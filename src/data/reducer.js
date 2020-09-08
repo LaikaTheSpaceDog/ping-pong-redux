@@ -19,7 +19,14 @@ const serverChange = state => {
 //   server1: (((state.player1 >= 20 && state.player2 >=20) && ((state.player1 + state.player2) % 2 === 0))) ? !state.server1 : (((state.player1 + state.player2) % 5 === 0) && ((state.player1 < 20) || (state.player2 < 20 ))) ? !state.server1 : state.server1 
 // });
 
-const winner = state => ({ ...state, winner: (state.player1 >= 21 || state.player2 >= 21) && (state.player1 - state.player2 >= 2 || state.player1 - state.player2 <= -2) });
+const winner = state => {
+  return (state.player1 >= 21 || state.player2 >= 21) && (state.player1 - state.player2 >= 2 || state.player1 - state.player2 <= -2);
+}
+
+const whoWinner = state => ({ 
+  ...state, 
+  winner: winner(state) ? (state.player1 === 21 ? 1 : 2) : 0,
+});
 
 const save = state => (state.winner ? { 
   ...state,
@@ -40,8 +47,8 @@ const save = state => (state.winner ? {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_PLAYER_1": return save(winner(server(player1(state))));
-    case "INCREMENT_PLAYER_2": return save(winner(server(player2(state))));
+    case "INCREMENT_PLAYER_1": return save(whoWinner(server(player1(state))));
+    case "INCREMENT_PLAYER_2": return save(whoWinner(server(player2(state))));
     case "RESET": return {
       ...initial,
       previousGames: state.previousGames

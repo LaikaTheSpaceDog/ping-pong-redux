@@ -6,12 +6,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
 
-let state = store.getState();
-
 ReactDOM.render(
   <Provider store={ store }>
     <App 
-      previousGames={ state.previousGames }
       handleIncrement1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
       handleIncrement2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
       handleReset={ () => store.dispatch({ type: "RESET" }) }
