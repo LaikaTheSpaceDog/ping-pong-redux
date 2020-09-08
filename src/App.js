@@ -3,8 +3,9 @@ import Header from "./components/Header";
 import Winner from "./components/Winner";
 import Scores from "./components/Scores";
 import Reset from "./components/Reset";
+import Table from "./components/Table";
 
-const App = ({ player1, player2, server1, handleIncrement1, handleIncrement2, handleReset, winner }) => (
+const App = ({ player1, player2, server1, handleIncrement1, handleIncrement2, handleReset, winner, handleSave, previousGames }) => (
     <React.Fragment>
         <Header />
         <Scores 
@@ -23,6 +24,9 @@ const App = ({ player1, player2, server1, handleIncrement1, handleIncrement2, ha
         <hr />
         <Reset 
             handleReset={ handleReset } 
+        />
+        <Table 
+            previousGames={ previousGames }
         />
     </React.Fragment>
 );
