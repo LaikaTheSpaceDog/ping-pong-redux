@@ -11,10 +11,6 @@ let state = store.getState();
 ReactDOM.render(
   <Provider store={ store }>
     <App 
-      player1={ state.player1 } 
-      player2={ state.player2 } 
-      server1={ state.server1 }
-      winner={ state.winner }
       previousGames={ state.previousGames }
       handleIncrement1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
       handleIncrement2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
