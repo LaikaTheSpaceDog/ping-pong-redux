@@ -1,7 +1,7 @@
 import React from "react";
 import Score from "./Score";
 
-const Scores = ({ player1, player2, server1, handleIncrement1, handleIncrement2, winner }) => {
+const Players = ({ player1, player2, server1, handleIncrement1, handleIncrement2, winner }) => {
 
     return(
         <>
@@ -26,4 +26,4 @@ const Scores = ({ player1, player2, server1, handleIncrement1, handleIncrement2,
 
 }
 
-export default Scores;
+export default Players;
