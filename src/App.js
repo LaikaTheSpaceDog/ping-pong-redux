@@ -17,7 +17,8 @@ const App = ({ player1, player2, server1, handleIncrement1, handleIncrement2, ha
         />
         <Winner 
             winner={ winner } 
-            player1={ player1 } 
+            player1={ player1 }
+            player2={ player2 } 
         />
         <hr />
         <Reset 

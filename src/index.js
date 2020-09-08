@@ -14,8 +14,8 @@ const initial = {
 
 const player1 = state => ({ ...state, player1: state.player1 + 1 });
 const player2 = state => ({ ...state, player2: state.player2 + 1 });
-const server = state => ({ ...state, server1: (state.player1 + state.player2) % 5 === 0 ? !state.server1 : state.server1 });
-const winner = state => ({ ...state, winner: state.player1 === 21 || state.player2 === 21 });
+const server = state => ({ ...state, server1: (((state.player1 >= 20 && state.player2 >=20) && ((state.player1 + state.player2) % 2 === 0))) ? !state.server1 : (((state.player1 + state.player2) % 5 === 0) && ((state.player1 < 20) || (state.player2 < 20 ))) ? !state.server1 : state.server1 });
+const winner = state => ({ ...state, winner: (state.player1 >= 21 || state.player2 >= 21) && (state.player1 - state.player2 >= 2 || state.player1 - state.player2 <= -2) });
 
 const reducer = (state, action) => {
   switch (action.type) {
