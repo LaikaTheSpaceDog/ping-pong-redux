@@ -2,8 +2,7 @@ import React from "react";
 
 const Table = ({ previousGames, handleClear }) => {
 
-    return(
-        previousGames === [] ? null :
+    return previousGames.length === 0 ? null : (
         <>
             <table className="table">
                 <thead>
