@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import Table from "./Table";
+import { clear } from "../../data/actions";
 
-const mapStateToProps = ({previousGames}) => {
+const mapStateToProps = ({ previousGames }) => {
     return {
         previousGames: previousGames,
     };
@@ -9,7 +10,7 @@ const mapStateToProps = ({previousGames}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleClear:  () => dispatch({ type: "CLEAR" }),
+        handleClear:  () => dispatch(clear()),
     }
 }
 
