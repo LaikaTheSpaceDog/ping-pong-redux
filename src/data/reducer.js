@@ -53,6 +53,9 @@ const reducer = (state, action) => {
       ...initial,
       previousGames: state.previousGames
     };
+    case "CLEAR": return {
+      ...initial,
+    }
     default: return state;
   }
 };

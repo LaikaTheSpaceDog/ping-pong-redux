@@ -12,6 +12,7 @@ ReactDOM.render(
       handleIncrement1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
       handleIncrement2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
       handleReset={ () => store.dispatch({ type: "RESET" }) }
+      handleClear={ () => store.dispatch({ type: "CLEAR" }) }
     />
   </Provider>,
   document.getElementById('root')

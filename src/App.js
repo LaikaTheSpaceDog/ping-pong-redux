@@ -6,7 +6,7 @@ import Player2 from "./components/Player/Player2";
 import Reset from "./components/Reset";
 import Table from "./components/Table/";
 
-const App = ({ handleIncrement1, handleIncrement2, handleReset }) => (
+const App = ({ handleIncrement1, handleIncrement2, handleReset, handleClear }) => (
     <React.Fragment>
         <Header />
         <div className="row mb-4">
@@ -18,7 +18,9 @@ const App = ({ handleIncrement1, handleIncrement2, handleReset }) => (
         <Reset 
             handleReset={ handleReset } 
         />
-        <Table />
+        <Table
+            handleClear={ handleClear }
+        />
     </React.Fragment>
 );
 
