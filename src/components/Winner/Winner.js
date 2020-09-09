@@ -1,10 +1,10 @@
 import React from "react";
 
-const Winner = ({ winner }) => {
+const Winner = ({ winner, player1Name, player2Name }) => {
 
     return (
         <>
-            { winner ? <h2 className="alert alert-success">{ winner === 1 ? "Player 1 Wins!" : "Player 2 Wins!" }</h2> : null }
+            { winner ? <h2 className="alert alert-success">{ winner === 1 ? `${player1Name} Wins!` : `${player2Name} Wins!` }</h2> : null }
         </>
     );
 

@@ -1,11 +1,13 @@
 import { connect } from "react-redux";
 import Winner from "./Winner";
 
-const mapStateToProps = ({winner, player1, player2}) => {
+const mapStateToProps = ({winner, player1, player2, player1Name, player2Name}) => {
     return {
-        winner: winner,
-        player1: player1,
-        player2: player2
+        winner,
+        player1,
+        player2,
+        player1Name,
+        player2Name
     };
 };
 

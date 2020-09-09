@@ -14,21 +14,16 @@ const serverChange = state => {
   }
 };
 
-// const server = state => ({ 
-//   ...state, 
-//   server1: (((state.player1 >= 20 && state.player2 >=20) && ((state.player1 + state.player2) % 2 === 0))) ? !state.server1 : (((state.player1 + state.player2) % 5 === 0) && ((state.player1 < 20) || (state.player2 < 20 ))) ? !state.server1 : state.server1 
-// });
-
 const winner = state => {
-  return (state.player1 >= state.winningScore || state.player2 >= state.winningScore) && (state.player1 - state.player2 >= 2 || state.player1 - state.player2 <= -2);
+  return (state.player1 >= state.winningScore || state.player2 >= state.winningScore) && Math.abs(state.player1 - state.player2) >= 2;
 }
 
 const whoWinner = state => ({ 
   ...state, 
-  winner: winner(state) ? (state.player1 === 21 ? 1 : 2) : 0,
+  winner: winner(state) ? (state.player1 > state.player2 ? 1 : 2) : 0,
 });
 
-const save = state => (state.winner ? { 
+const save = state => state.winner ? { 
   ...state,
   previousGames: [
     ...state.previousGames,
@@ -43,14 +38,24 @@ const save = state => (state.winner ? {
       }
     }
   ] 
-} : {...state});
+} : state;
 
 const saveSettings = (state, { player1Name, player2Name, winningScore, alternate }) => ({ 
   ...state, 
-  player1Name: player1Name,
-  player2Name: player2Name,
-  winningScore: winningScore,
-  alternate: alternate,
+  player1Name,
+  player2Name,
+  winningScore,
+  alternate,
+  submitted: true
+ });
+
+ const resetSettings = ({ player1Name, player2Name, winningScore, alternate, previousGames }) => ({ 
+  ...initial, 
+  player1Name,
+  player2Name,
+  winningScore,
+  alternate,
+  previousGames,
   submitted: true
  });
 
@@ -58,18 +63,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_PLAYER_1": return save(whoWinner(server(player1(state))));
     case "INCREMENT_PLAYER_2": return save(whoWinner(server(player2(state))));
-    case "RESET": return {
-      ...initial,
-      previousGames: state.previousGames,
-      player1Name: state.player1Name,
-      player2Name: state.player2Name,
-      winningScore: state.winningScore,
-      alternate: state.alternate,
-      submitted: true
-    };
-    case "CLEAR": return {
-      ...initial,
-    }
+    case "RESET": return resetSettings(state);
+    case "CLEAR": return initial;
     case "SAVE_SETTINGS": return saveSettings(state, action);
     default: return state;
   }
