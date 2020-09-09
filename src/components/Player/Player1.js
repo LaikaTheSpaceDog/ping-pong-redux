@@ -10,4 +10,10 @@ const mapStateToProps = ({ player1, server1, winner }) => {
     }
 }
 
-export default connect(mapStateToProps)(Score);
+const mapDispatchToProps = dispatch => {
+    return {
+        handleIncrement:  () => dispatch({ type: "INCREMENT_PLAYER_1" }),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Score);
