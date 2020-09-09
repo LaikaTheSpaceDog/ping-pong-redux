@@ -21,3 +21,13 @@ export const reset = () => {
         type: "RESET",
     };
 };
+
+export const saveSettings = ({ player1Name, player2Name, winningScore, alternate }) => {
+    return {
+        type: "SAVE_SETTINGS",
+        player1Name: player1Name,
+        player2Name: player2Name, 
+        winningScore: +winningScore,
+        alternate: +alternate,
+    };
+};

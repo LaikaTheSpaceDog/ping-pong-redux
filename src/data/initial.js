@@ -3,7 +3,12 @@ const initial = {
     player2: 0,
     server1: true,
     winner: 0,
-    previousGames: []
+    previousGames: [],
+    winningScore: 21,
+    alternate: 5,
+    player1Name: "",
+    player2Name: "",
+    submitted: false
   };
 
   export default initial;

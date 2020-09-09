@@ -22,7 +22,7 @@ const Table = ({ previousGames, handleClear }) => {
                     ) )}
                 </tbody>
             </table>
-            <button className="btn btn-danger" onClick={ handleClear }>Clear Table</button>
+            <button className="btn btn-danger" onClick={ handleClear }>New Game</button>
         </>
     );
 

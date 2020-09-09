@@ -2,12 +2,12 @@ import { connect } from "react-redux";
 import Score from "../Score";
 import { increment1 } from "../../data/actions";
 
-const mapStateToProps = ({ player1, server1, winner }) => {
+const mapStateToProps = ({ player1, server1, winner, player1Name }) => {
     return {
         player: player1,
         serving: server1,
         winner: winner,
-        name: "Player 1"
+        name: player1Name
     }
 }
 
