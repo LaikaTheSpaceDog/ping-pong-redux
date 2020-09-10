@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Table from "./Table";
-import { clear } from "../../data/actions";
+import { clear } from "../../data/actions/state";
 
 const mapStateToProps = ({ previousGames, language, player1Name, player2Name }) => {
     return {

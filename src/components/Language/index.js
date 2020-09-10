@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Language from "./Language";
-import { languageEng, languageRus } from "../../data/actions";
+import { languageEng, languageRus } from "../../data/actions/state";
 
 const mapDispatchToProps = dispatch => {
     return {

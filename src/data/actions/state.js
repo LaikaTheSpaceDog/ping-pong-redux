@@ -22,13 +22,13 @@ export const reset = () => {
     };
 };
 
-export const saveSettings = ({ player1Name, player2Name, winningScore, alternate }) => {
+export const saveSettings = ({ player_1, player_2, winning_score, change_serve }) => {
     return {
         type: "SAVE_SETTINGS",
-        player1Name: player1Name,
-        player2Name: player2Name, 
-        winningScore: +winningScore,
-        alternate: +alternate,
+        player1Name: player_1,
+        player2Name: player_2, 
+        winningScore: +winning_score,
+        alternate: +change_serve,
     };
 };
 
@@ -45,3 +45,9 @@ export const languageRus = () => {
         language: "russian"
     }
 } 
+
+export const loaded = () => {
+    return {
+        type: "loaded",
+    };
+};

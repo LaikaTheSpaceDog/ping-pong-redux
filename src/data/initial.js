@@ -10,6 +10,7 @@ const initial = {
     player2Name: "",
     submitted: false,
     language: "english",
+    loaded: false
   };
 
   export default initial;
