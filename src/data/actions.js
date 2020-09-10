@@ -31,3 +31,17 @@ export const saveSettings = ({ player1Name, player2Name, winningScore, alternate
         alternate: +alternate,
     };
 };
+
+export const languageEng = () => {
+    return {
+        type: "LANGUAGE",
+        language: "english"
+    }
+} 
+
+export const languageRus = () => {
+    return {
+        type: "LANGUAGE",
+        language: "russian"
+    }
+} 

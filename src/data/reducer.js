@@ -59,6 +59,11 @@ const saveSettings = (state, { player1Name, player2Name, winningScore, alternate
   submitted: true
  });
 
+ const language = (state, { language }) => ({
+   ...state,
+   language: language
+ });
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_PLAYER_1": return save(whoWinner(server(player1(state))));
@@ -66,6 +71,7 @@ const reducer = (state, action) => {
     case "RESET": return resetSettings(state);
     case "CLEAR": return initial;
     case "SAVE_SETTINGS": return saveSettings(state, action);
+    case "LANGUAGE": return language(state, action);
     default: return state;
   }
 };

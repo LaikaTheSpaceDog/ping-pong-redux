@@ -1,6 +1,7 @@
 import React from "react";
+import translation from "../../data/translations.json";
 
-const Table = ({ previousGames, handleClear }) => {
+const Table = ({ previousGames, handleClear, language, player1Name, player2Name }) => {
 
     return previousGames.length === 0 ? null : (
         <>
@@ -8,8 +9,8 @@ const Table = ({ previousGames, handleClear }) => {
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Player 1</th>
-                        <th scope="col">Player 2</th>
+                        <th scope="col">{ player1Name }</th>
+                        <th scope="col">{ player2Name }</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +23,7 @@ const Table = ({ previousGames, handleClear }) => {
                     ) )}
                 </tbody>
             </table>
-            <button className="btn btn-danger" onClick={ handleClear }>New Game</button>
+            <button className="btn btn-danger" onClick={ handleClear }>{ translation[language]["New Game"] }</button>
         </>
     );
 

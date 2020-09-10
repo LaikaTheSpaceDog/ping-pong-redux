@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../Header";
+import Header from "../Header/";
 import Winner from "../Winner";
 import Player1 from "../Player/Player1";
 import Player2 from "../Player/Player2";

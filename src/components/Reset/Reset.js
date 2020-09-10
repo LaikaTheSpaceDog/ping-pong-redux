@@ -1,9 +1,10 @@
 import React from "react";
+import translation from "../../data/translations.json";
 
-const Reset = ({ handleReset }) => {
+const Reset = ({ handleReset, language }) => {
 
     return(
-        <button className="btn btn-danger" onClick={ handleReset }>Reset</button>
+        <button className="btn btn-danger" onClick={ handleReset }>{ translation[language]["Reset"] }</button>
     );
 
 }

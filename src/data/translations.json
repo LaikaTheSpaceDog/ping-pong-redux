@@ -1,0 +1,24 @@
+{
+    "russian":{
+        "Player 1":"Первый Игрок",
+        "Player 2":"Второй Игрок",
+        "Reset":"Перезагрузка",
+        "New Game":"Новая Игра",
+        "Winning Score":"Победный Результат",
+        "Alternates Every":"Подача Переходит",
+        "Ping-Pong":"Пинг-Понг",
+        "Start Game":"Начать",
+        "Wins!":"Победил!"
+    },
+    "english":{
+        "Player 1":"Player 1",
+        "Player 2":"Player 2",
+        "Reset":"Reset",
+        "New Game":"New Game",
+        "Winning Score":"Winning Score",
+        "Alternates Every":"Alternates Every",
+        "Ping-Pong":"Ping-Pong",
+        "Start Game":"Start Game",
+        "Wins!":"Wins!"
+    }
+}

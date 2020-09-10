@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import translation from "../../data/translations.json";
 
 class Settings extends Component {
     constructor (props) {
@@ -41,26 +42,27 @@ class Settings extends Component {
 
     render() {
         let { player1Name, player2Name, winningScore, alternate } = this.state;
+        let { language } = this.props;
 
         return (
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
-                    <label>Player 1</label>
+                    <label>{ translation[language]["Player 1"] }</label>
                     <input className="form-control" onChange={ this.handlePlayer1 } value={ player1Name } />
                 </div>
                 <div className="form-group">
-                    <label>Player 2</label>
+                <label>{ translation[language]["Player 2"] }</label>
                     <input className="form-control" onChange={ this.handlePlayer2 } value={ player2Name } />
                 </div>
                 <div className="form-group">
-                    <label>Winning Score</label>
+                    <label>{ translation[language]["Winning Score"] }</label>
                     <input className="form-control" onChange={ this.handleWinning } value={ winningScore } />
                 </div>
                 <div className="form-group">
-                    <label>Alternate Every</label>
+                    <label>{ translation[language]["Alternates Every"] }</label>
                     <input className="form-control" onChange={ this.handleAlternate } value={ alternate } />
                 </div>
-                <button className="btn btn-primary">Start Game</button>
+                <button className="btn btn-primary">{ translation[language]["Start Game"] }</button>
             </form>
         );
     }

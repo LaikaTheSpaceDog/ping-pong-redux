@@ -5,7 +5,8 @@ import { saveSettings } from "../../data/actions";
 const mapStateToProps = state => {
     return {
         winningScore: state.winningScore,
-        alternate: state.alternate
+        alternate: state.alternate,
+        language: state.language
     };
 };
 

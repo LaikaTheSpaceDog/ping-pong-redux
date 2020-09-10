@@ -8,7 +8,8 @@ const initial = {
     alternate: 5,
     player1Name: "",
     player2Name: "",
-    submitted: false
+    submitted: false,
+    language: "english",
   };
 
   export default initial;
