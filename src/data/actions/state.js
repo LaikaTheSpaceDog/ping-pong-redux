@@ -33,6 +33,17 @@ export const saveSettings = ({ player_1, player_2, winning_score, change_serve, 
     };
 };
 
+export const resetSettings = ({ player_1, player_2, winning_score, change_serve, id }) => {
+    return {
+        type: "RESET_SETTINGS",
+        player1Name: player_1.name,
+        player2Name: player_2.name, 
+        winningScore: +winning_score,
+        alternate: +change_serve,
+        id: +id,
+    };
+};
+
 export const languageEng = () => {
     return {
         type: "LANGUAGE",

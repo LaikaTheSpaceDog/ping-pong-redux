@@ -50,13 +50,16 @@ const saveSettings = (state, { player1Name, player2Name, winningScore, alternate
   submitted: true
  });
 
- const resetSettings = ({ player1Name, player2Name, winningScore, alternate, previousGames }) => ({ 
-  ...initial, 
+ const resetSettings = (state, { player1Name, player2Name, winningScore, alternate, previousGames, id }) => ({ 
+  ...state, 
+  player1: 0,
+  player2: 0,
   player1Name,
   player2Name,
   winningScore,
   alternate,
-  previousGames,
+  previousGames: state.previousGames,
+  id,
   submitted: true, 
   loaded: true
  });
@@ -77,13 +80,18 @@ const saveSettings = (state, { player1Name, player2Name, winningScore, alternate
    player2: player2
  })
 
+ const clear = ({ previousGames }) => ({
+   ...initial, previousGames,
+ })
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_PLAYER_1": return save(whoWinner(server(player1(state))));
     case "INCREMENT_PLAYER_2": return save(whoWinner(server(player2(state))));
     case "RESET": return resetSettings(state);
-    case "CLEAR": return initial;
+    case "CLEAR": return clear(state);
     case "SAVE_SETTINGS": return saveSettings(state, action);
+    case "RESET_SETTINGS": return resetSettings(state, action);
     case "LANGUAGE": return language(state, action);
     case "loaded": return loaded(state);
     case "apiScore": return save(whoWinner(server(apiScore(state, action))));
