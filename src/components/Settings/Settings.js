@@ -9,7 +9,7 @@ class Settings extends Component {
             player1Name: "",
             player2Name: "",
             winningScore: props.winningScore,
-            alternate: props.alternate
+            alternate: props.alternate,
         };
 
         this.handlePlayer1 = this.handlePlayer1.bind(this);

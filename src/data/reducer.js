@@ -40,12 +40,13 @@ const save = state => state.winner ? {
   ] 
 } : state;
 
-const saveSettings = (state, { player1Name, player2Name, winningScore, alternate }) => ({ 
+const saveSettings = (state, { player1Name, player2Name, winningScore, alternate, id }) => ({ 
   ...state, 
   player1Name,
   player2Name,
   winningScore,
   alternate,
+  id,
   submitted: true
  });
 
@@ -56,7 +57,8 @@ const saveSettings = (state, { player1Name, player2Name, winningScore, alternate
   winningScore,
   alternate,
   previousGames,
-  submitted: true
+  submitted: true, 
+  loaded: true
  });
 
  const language = (state, { language }) => ({
@@ -69,6 +71,12 @@ const saveSettings = (state, { player1Name, player2Name, winningScore, alternate
    loaded: true,
  })
 
+ const apiScore = (state, { player1, player2 }) => ({
+   ...state,
+   player1: player1,
+   player2: player2
+ })
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_PLAYER_1": return save(whoWinner(server(player1(state))));
@@ -78,6 +86,7 @@ const reducer = (state, action) => {
     case "SAVE_SETTINGS": return saveSettings(state, action);
     case "LANGUAGE": return language(state, action);
     case "loaded": return loaded(state);
+    case "apiScore": return save(whoWinner(server(apiScore(state, action))));
     default: return state;
   }
 };

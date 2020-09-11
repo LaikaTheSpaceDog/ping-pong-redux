@@ -22,13 +22,14 @@ export const reset = () => {
     };
 };
 
-export const saveSettings = ({ player_1, player_2, winning_score, change_serve }) => {
+export const saveSettings = ({ player_1, player_2, winning_score, change_serve, id }) => {
     return {
         type: "SAVE_SETTINGS",
-        player1Name: player_1,
-        player2Name: player_2, 
+        player1Name: player_1.name,
+        player2Name: player_2.name, 
         winningScore: +winning_score,
         alternate: +change_serve,
+        id: +id
     };
 };
 
@@ -51,3 +52,11 @@ export const loaded = () => {
         type: "loaded",
     };
 };
+
+export const apiScore = ({ player_1, player_2 }) => {
+    return {
+        type: "apiScore",
+        player1: player_1.score,
+        player2: player_2.score
+    }
+}
